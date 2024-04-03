@@ -28,7 +28,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(GreetingController.class)
+@WebMvcTest(RecTVController.class)
 @TestPropertySource(properties = "logging.level.org.springframework.web=DEBUG")
 public class HandlingFormSubmissionApplicationTest {
 
@@ -37,15 +37,23 @@ public class HandlingFormSubmissionApplicationTest {
 
 	@Test
 	public void rendersForm() throws Exception {
-		mockMvc.perform(get("/greeting"))
+		mockMvc.perform(get("/RecTV"))
 				.andExpect(content().string(containsString("Form")));
 	}
 
 	@Test
 	public void submitsForm() throws Exception {
-		mockMvc.perform(post("/greeting").param("id", "12345").param("content", "Hello"))
+		mockMvc.perform(post("/RecTV").param("model", "ABC123").param("size", "50\"")
+		.param("resolution", "1920x1080").param("manufacturer","Samsung").param("priceRange","100.00~300.00"))
 				.andExpect(content().string(containsString("Result")))
-				.andExpect(content().string(containsString("id: 12345")));
+				.andExpect(content().string(containsString("manufacturer: samsung")))
+				.andExpect(content().string(containsString("model: ABC123")));
 	}
+
+	/*@Test
+	public void renderResult() throws Exception {
+		mockMvc.perform(get("/Final"))
+			.andExpect(content().string(containsString("Form")));
+	}*/
 
 }

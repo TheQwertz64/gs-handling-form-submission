@@ -11,7 +11,7 @@
 
 .grid-section {
 	border: 2px solid black;
-	height: rem;
+	height: 20rem;
 	display: flex;
 	flex-direction: column;
 	padding: 4px;
@@ -69,15 +69,14 @@
         </form>
     </div>
     <div class = "grid-section flex-col">
-        <h3 class = "title">Selected TV</h3>
+        <h3 class ="title">Selected TV</h3>
         <p>
             <p>Model: </p> <p>Manufacturer: </p> <p>Size: </p> <p>Resoulution: </p> <p>Price: </p>
-            <button action="#" th:action="@{/Final}" th:object="${RecTV}" method="post" type="button">Select TV</button>
+            <button type="button">Select TV</button>
         </p>
     </div>
     <div class = "grid-section flex-col">
         <h4 class = "title">Recommended Models</h4>
-        <div th:text="${RecTV.manufacturer} + ' ' +${RecTV.model} + ' 0'"/>
         <button type="button">Special Order</button>
     </div>
     </div>
