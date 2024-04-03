@@ -1,6 +1,12 @@
 package com.example.handlingformsubmission;
 
+import org.springframework.data.annotation.Id;
+
 public class RecTV {
+
+    @Id
+    public long id;
+    
     protected String model;
     protected String size;
     protected String resolution;

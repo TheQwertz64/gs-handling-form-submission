@@ -50,10 +50,15 @@ public class HandlingFormSubmissionApplicationTest {
 				.andExpect(content().string(containsString("model: ABC123")));
 	}
 
-	/*@Test
+	@Test
 	public void renderResult() throws Exception {
 		mockMvc.perform(get("/Final"))
 			.andExpect(content().string(containsString("Form")));
-	}*/
+	}
+
+	@Test
+	public void selTV() throws Exception {
+		mockMvc.perform(post("/Final"));
+	}
 
 }
