@@ -5,10 +5,11 @@ import org.springframework.stereotype.Service;
 
 @Service("RepoService")
 public class RepoService {
+    
     @Autowired
     RecTVRepo tvrepo;
 
     public void saveTVs (RecTVRepo newRepo){
-        //tvrepo.save(newRepo);
+        tvrepo.save(newRepo);
     }
 }

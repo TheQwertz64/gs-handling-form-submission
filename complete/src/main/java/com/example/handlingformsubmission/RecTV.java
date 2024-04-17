@@ -26,7 +26,8 @@ public class RecTV {
         this.price = 0;
     }
 
-    public RecTV(String model, String size, String resolution, String manufacturer, float discount, int stock, float price){
+    public RecTV(long id, String model, String size, String resolution, String manufacturer, float discount, int stock, float price){
+        this.id = id;
         this.model = model;
         this.size = size;
         this.resolution = resolution;

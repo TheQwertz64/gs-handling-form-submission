@@ -5,9 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class RecTVController {
+
+	
+	@Autowired
+	RepoService myRepo;
 
 	@GetMapping("/RecTV")
 	public String searchForm(Model model) {

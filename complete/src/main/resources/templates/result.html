@@ -72,7 +72,9 @@
         <h3 class = "title">Selected TV</h3>
         <p>
             <p>Model: </p> <p>Manufacturer: </p> <p>Size: </p> <p>Resoulution: </p> <p>Price: </p>
-            <button action="#" th:action="@{/Final}" th:object="${RecTV}" method="post" type="button">Select TV</button>
+            <form action="#" th:action="@{/Final}" th:object="${RecTV}" method="post">
+            <input type="button">Select TV</button>
+            </form>
         </p>
     </div>
     <div class = "grid-section flex-col">
