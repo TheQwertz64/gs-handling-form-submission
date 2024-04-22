@@ -1,12 +1,20 @@
 package com.example.handlingformsubmission;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+import jakarta.annotation.Generated;
+
+@Entity
 public class RecTV {
 
     @Id
-    public long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
     
+    protected Long sid;
     protected String model;
     protected String size;
     protected String resolution;
@@ -17,6 +25,7 @@ public class RecTV {
     protected String priceRange;
 
     public RecTV(){
+        this.sid = 0L;
         this.model = null;
         this.size = null;
         this.resolution = null;
@@ -26,8 +35,8 @@ public class RecTV {
         this.price = 0;
     }
 
-    public RecTV(long id, String model, String size, String resolution, String manufacturer, float discount, int stock, float price){
-        this.id = id;
+    public RecTV(long sid, String model, String size, String resolution, String manufacturer, float discount, int stock, float price){
+        this.sid = sid;
         this.model = model;
         this.size = size;
         this.resolution = resolution;
@@ -36,6 +45,17 @@ public class RecTV {
         this.stock = stock;
         this.price = price;
     }
+
+    public Long getId() {
+		return id;
+	}
+
+	public Long getSid() {
+		return sid;
+	}
+	public void setSid(Long sid) {
+		this.sid = sid;
+	}
 
     public boolean checkDisplayTV(){
         if (this.getStock() == 1){
@@ -90,6 +110,14 @@ public class RecTV {
 
     public void setManufacturer(String man){
         this.manufacturer = man;
+    }
+
+
+
+    @Override
+    public String toString(){
+        return String.format("TV[sid=%d, model='%s', size='%s', res='%s',manufacturer='%s',discount='%f', stock='%i', price='%f']",
+        sid,model, size, resolution, manufacturer, discount, stock, price);
     }
 
 }

@@ -14,15 +14,15 @@ public class RecTVController {
 	@Autowired
 	RepoService myRepo;
 
-	@GetMapping("/RecTV")
+	@GetMapping("/rectvpage")
 	public String searchForm(Model model) {
-		model.addAttribute("RecTV", new RecTV());
-		return "Rectv";
+		model.addAttribute("rectv", new RecTV());
+		return "rectv";
 	}
 
-	@PostMapping("/RecTV")
-	public String searchSubmit(@ModelAttribute RecTV recTV, Model model) {
-		model.addAttribute("RecTV", recTV);
+	@PostMapping("/rectvpage")
+	public String searchSubmit(@ModelAttribute RecTV niceTV, Model model) {
+		model.addAttribute("rectv", niceTV);
 		return "result";
 	}
 
@@ -35,6 +35,7 @@ public class RecTVController {
 	@PostMapping("/Final")
 	public String selModel(@ModelAttribute RecTV recTV, Model model){
 		model.addAttribute("RecTV", recTV);
+		//myRepo.saveRecTV(recTV);
 		return "final";
 	}
 
