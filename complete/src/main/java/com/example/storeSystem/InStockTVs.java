@@ -1,4 +1,4 @@
-package com.example.handlingformsubmission;
+package com.example.storeSystem;
 
 public class InStockTVs extends RecTV{
     private RecTV[] storeStock;

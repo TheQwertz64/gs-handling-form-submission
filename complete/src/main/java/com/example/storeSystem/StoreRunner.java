@@ -1,4 +1,4 @@
-package com.example.handlingformsubmission;
+package com.example.storeSystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -47,7 +47,7 @@ public class StoreRunner {
 							//myRepo.saveRecTV(testTv);
 
 
-						RecTV demoTv = new RecTV(1L,"mod1","0\"", "0x0","man1",0.0f,1,0.0f);
+						RecTV demoTv = new RecTV(1L,"mod1","0\"", "0x0","man1",1,0.0f);
 						//myRepo.saveRecTV(demoTv);
 						
 						repository.save(demoTv);

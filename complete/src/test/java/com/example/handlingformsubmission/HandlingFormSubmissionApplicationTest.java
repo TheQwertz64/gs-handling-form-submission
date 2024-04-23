@@ -28,6 +28,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.storeSystem.RecTVController;
+
 @WebMvcTest(RecTVController.class)
 @TestPropertySource(properties = "logging.level.org.springframework.web=DEBUG")
 public class HandlingFormSubmissionApplicationTest {

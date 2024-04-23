@@ -1,4 +1,4 @@
-package com.example.handlingformsubmission;
+package com.example.storeSystem;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
