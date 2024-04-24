@@ -5,14 +5,21 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface RecTVRepo extends CrudRepository<RecTV, Long> {
+public interface RecTVRepo extends CrudRepository<RecTV, Integer> {
     
-        List<RecTV> findByContent(String model);
+        //List<RecTV> findBymodel(String model);
 
-        Optional<RecTV> findById(Long id);
+        Optional<RecTV> findById(int id);
 
-        //void add(RecTV newTv);
+        Optional<RecTV> findBysid(Long sid);
 
-        //void save(RecTVRepo newRepo, long l);
+        Optional<RecTV> findByModel(String model);
+
+        Optional<RecTV> findBySize(String size);
+
+        Optional<RecTV> findByResolution(String resolution);
+
+        Optional<RecTV> findByPrice(float price);
+
 
 }

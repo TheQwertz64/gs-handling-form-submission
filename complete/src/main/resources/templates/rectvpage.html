@@ -54,7 +54,9 @@
     <div class ="grid-container">
     <div class ="grid-section flex-col">
         <h2 class = "title">Search Parameters</h2>
-        <form action="#" th:action="@{/RecTV}" th:object="${RecTV}" method="post">
+        <form action="#" th:action="@{/rectv}" th:object="${rectv}" method="post">
+            <label for="sid">Sid:</label>
+            <input type="number" th:field="*{sid}" name="pr"> <br>
             <label for="model">Model:</label>
             <input type="text" th:field="*{model}" name="model"> <br>
             <label for="manufacturer">Manufacturer:</label>
@@ -63,8 +65,8 @@
             <input type="text" th:field="*{size}" name="size"> <br>
             <label for="res">Resolution:</label>
             <input type="text" th:field="*{resolution}" name="res"> <br>
-            <label for="pr">Price Range:</label>
-            <input type="text" th:field="*{price}" name="pr"> <br>
+            <label for="pr">Price:</label>
+            <input type="number" th:field="*{price}" name="pr"> <br>
             <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
         </form>
     </div>
