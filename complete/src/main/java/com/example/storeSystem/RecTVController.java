@@ -9,11 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.ParameterizedTypeReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.core.ParameterizedTypeReference;
 
 
 @Controller
 public class RecTVController implements storeInterface{
+
+	private static final Logger log = LoggerFactory.getLogger(RecTVController.class);
 
 	@Bean
 		public RestTemplate restTemplate(RestTemplateBuilder builder) {
@@ -22,10 +31,15 @@ public class RecTVController implements storeInterface{
 	
 	@Autowired
 	RepoService myRepo;
+	
 
 	@GetMapping("/rectvpage")
 	public String searchForm(Model model, RestTemplate restTemplate) {
 		model.addAttribute("rectv", new RecTV());
+		String url = "http://localhost:8080/getTvInfo/{sid}";
+		long sid = 1l;
+		ResponseEntity<String> myTv = restTemplate.exchange(url,HttpMethod.GET,null, new ParameterizedTypeReference<String>() {}, sid);
+		log.info(myTv.getBody());
 		return "rectvpage";
 	}
 
