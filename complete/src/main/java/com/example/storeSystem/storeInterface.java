@@ -14,11 +14,9 @@ public interface storeInterface {
     @PostMapping("/rectvpage")
 	public String searchSubmit(@ModelAttribute RecTV niceTV, Model model, RestTemplate restTemplate);
 
-
-
     @GetMapping("/result")
-	public String chooseRes(@ModelAttribute RecTV foundTV, Model model);
+	public String chooseRes(@ModelAttribute RecTV foundTV, Model model, RestTemplate restTemplate);
 
     @PostMapping("/result")
-	public String resChose(@ModelAttribute RecTV recTV, Model model);
+	public String resChose(@ModelAttribute RecTV recTV, Model model, RestTemplate restTemplate);
 }

@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import jakarta.annotation.Generated;
-
 @Entity
 public class RecTV {
 
@@ -29,7 +27,17 @@ public class RecTV {
         this.resolution = null;
         this.manufacturer = null;
         this.stock = 0;
-        this.price = 0;
+        this.price = 0.0f;
+    }
+
+    public RecTV(String model, String size, String resolution, String manufacturer, float price){
+        this.sid = 0l;
+        this.model = model;
+        this.size = size;
+        this.resolution = resolution;
+        this.manufacturer = manufacturer;
+        this.stock = 0;
+        this.price = price;
     }
 
     public RecTV(long sid, String model, String size, String resolution, String manufacturer, int stock, float price){
@@ -105,6 +113,14 @@ public class RecTV {
     public String toString(){
         return String.format("TV[sid=%d, model='%s', size='%s', res='%s',manufacturer='%s', stock='%i', price='%f']",
         sid,model, size, resolution, manufacturer, stock, price);
+    }
+
+    public void incrementStock(int stockChange){
+        this.stock += stockChange;
+    }
+
+    public void reduceStock(int stockChange){
+        this.stock -= stockChange;
     }
 
 }

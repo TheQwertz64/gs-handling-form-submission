@@ -21,6 +21,12 @@ public class StoreRunner {
 		SpringApplication.run(StoreRunner.class, args);
 	}
 
+	/*@Bean 
+		public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+			return args -> {
+				= restTemplate.get
+			}
+		}*/
 }
 
 

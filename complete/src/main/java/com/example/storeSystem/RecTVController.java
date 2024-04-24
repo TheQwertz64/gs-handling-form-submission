@@ -36,13 +36,14 @@ public class RecTVController implements storeInterface{
 	}
 
 	@GetMapping("/result")
-	public String chooseRes(@ModelAttribute RecTV foundTV, Model model){
+	public String chooseRes(@ModelAttribute RecTV foundTV, Model model, RestTemplate restTemplate){
+		if (foundTV.getStock() == 0)
 		model.addAttribute("rectv", foundTV);
 		return "result";
 	}
 
 	@PostMapping("/result")
-	public String resChose(@ModelAttribute RecTV foundTV, Model model){
+	public String resChose(@ModelAttribute RecTV foundTV, Model model, RestTemplate restTemplate){
 		return "final";
 	}
 

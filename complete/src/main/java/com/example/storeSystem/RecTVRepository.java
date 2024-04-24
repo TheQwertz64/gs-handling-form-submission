@@ -1,17 +1,14 @@
 package com.example.storeSystem;
 
-import java.util.List;
 import java.util.Optional;
+import org.springframework.data.repository.query.Param;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface RecTVRepo extends CrudRepository<RecTV, Integer> {
-    
-        //List<RecTV> findBymodel(String model);
+public interface RecTVRepository extends CrudRepository<RecTV, Integer> {
 
-        Optional<RecTV> findById(int id);
 
-        Optional<RecTV> findBysid(Long sid);
+        RecTV findBysid(@Param("sid") long sid);
 
         Optional<RecTV> findByModel(String model);
 
